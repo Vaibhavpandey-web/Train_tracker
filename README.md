@@ -18,7 +18,7 @@ Users can enter their **10-digit PNR number** to track the live location of thei
 - **Frontend:** Vue 3 (Composition API) + Vuetify
 - **Backend:** Firebase Realtime Database
 - **Map Integration:** Openstreetmap
-- **Deployment:** GitHub Pages / Firebase Hosting
+- **Deployment:** Netlify / Firebase Hosting
 
 ---
 
@@ -37,4 +37,5 @@ npm run build
 
 #for firebase Hosting
 firebase deploy
+
 
