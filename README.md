@@ -1,41 +1,68 @@
-# 🚝 Train Tracker - Vue 3 + Vuetify + Firebase
+<div align="center">
 
-A real-time train tracking application built using **Vue 3**, **Vuetify**, and **Firebase Realtime Database**.  
-Users can enter their **10-digit PNR number** to track the live location of their train on an interactive map.
+# Train Tracker
 
----
+A Vue application exploring PNR input, Firebase integration and a map-based interface.
 
-## ✨ Features
-- 🎯 **PNR Validation** – Ensures only valid 10-digit PNR numbers are accepted.
-- 🗺 **Live Location Tracking** – Fetches and displays train location on Google Maps.
-- 🔥 **Firebase Realtime Database** – Stores and retrieves train location data in real time.
-- 🎨 **Vuetify UI Components** – Clean and responsive design with material design.
-- ⏳ **Loading Spinner** – Smooth UX when fetching or saving data.
+![Vue 3](https://img.shields.io/badge/Vue%203-111827?style=flat-square) ![Vuetify](https://img.shields.io/badge/Vuetify-111827?style=flat-square) ![Firebase](https://img.shields.io/badge/Firebase-111827?style=flat-square) ![Leaflet](https://img.shields.io/badge/Leaflet-111827?style=flat-square)
+
+</div>
 
 ---
 
-## 🛠 Tech Stack
-- **Frontend:** Vue 3 (Composition API) + Vuetify
-- **Backend:** Firebase Realtime Database
-- **Map Integration:** Openstreetmap
-- **Deployment:** Netlify / Firebase Hosting
+[Setup](#run-locally) · [Source](train-tracker/src) · [Project status](#project-status)
 
----
+## Project status
 
-## 📦 Installation
+**Demo application:** the dashboard currently writes a fixed simulated location to Firebase. It does not connect to a live railway or PNR API. Ten-digit validation checks input format; it does not verify a booking.
 
-### 1️⃣ Clone the Repository
+## Highlights
+
+- PNR input with ten-digit validation.
+- Vuetify interface with a loading overlay.
+- Firebase Realtime Database integration.
+- Map component and login/register views.
+
+## Run locally
+
+Install Node.js and npm, then run:
+
 ```bash
-git clone https://github.com/your-username/Train_tracker.git
-cd Train_tracker
+git clone https://github.com/Vaibhavpandey-web/Train_tracker.git
+cd Train_tracker/train-tracker
+npm ci
+npm run serve
+```
 
- #Install dependencies
-npm install
+Use the local address printed by Vue CLI. Configure your own Firebase project in `src/firebase/config.js`, enable the services used by the app and set appropriate database access rules before testing writes. Use synthetic PNR values for the demo.
 
-#Deployment
-npm run build
+## Commands
 
-#for firebase Hosting
-firebase deploy
+Run these from the `train-tracker` directory:
 
+| Command | Purpose |
+| --- | --- |
+| `npm run serve` | Development server |
+| `npm run build` | Production build into `dist/` |
+| `npm run lint` | Source linting |
 
+<details>
+<summary><strong>Source guide</strong></summary>
+
+- `src/views/TrainDashboard.vue` — PNR form and simulated location write.
+- `src/components/TrainMap.vue` — map interface.
+- `src/views/UserLogin.vue` and `UserRegister.vue` — account views.
+- `src/firebase/config.js` — Firebase configuration.
+- `src/router/index.js` — application routes.
+
+</details>
+
+## Next steps
+
+- Integrate an authorized railway data provider through a backend.
+- Replace fixed coordinates with validated provider responses.
+- Add explicit error, empty and unavailable-data states.
+
+---
+
+Built by [Vaibhav Pandey](https://github.com/Vaibhavpandey-web) · [Portfolio](https://vaibhav-pandey-portfolio-henna.vercel.app/)
